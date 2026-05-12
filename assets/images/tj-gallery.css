@@ -1,0 +1,368 @@
+/*! pro-elements- v3.34.0 - 22-12-2025 */
+.elementor-gallery__container {
+	min-height: 1px;
+}
+.elementor-gallery-item {
+	border: solid var(--image-border-width) var(--image-border-color);
+	border-radius: var(--image-border-radius);
+	display: block;
+	overflow: hidden;
+	position: relative;
+	text-decoration: none;
+}
+.elementor-gallery-item__content,
+.elementor-gallery-item__overlay {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.elementor-gallery-item__overlay {
+	mix-blend-mode: var(--overlay-mix-blend-mode);
+	transition-duration: var(--overlay-transition-duration);
+	transition-property: mix-blend-mode, transform, opacity, background-color;
+}
+.elementor-gallery-item__image.e-gallery-image {
+	transition-duration: var(--image-transition-duration);
+	transition-property: filter, transform;
+}
+.elementor-gallery-item__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: var(--content-justify-content, center);
+	align-items: var(--content-text-align, center);
+	padding: var(--content-padding);
+	text-align: var(--content-text-align);
+}
+
+.elementor-gallery-item__content > div {
+	transition-duration: var(--content-transition-duration);
+}
+
+.elementor-gallery-item__content.elementor-gallery--sequenced-animation > div:nth-child(2) {
+	transition-delay: calc(var(--content-transition-delay) / 3);
+}
+
+.elementor-gallery-item__content.elementor-gallery--sequenced-animation > div:nth-child(3) {
+	transition-delay: calc(var(--content-transition-delay) / 3 * 2);
+}
+
+.elementor-gallery-item__content.elementor-gallery--sequenced-animation > div:nth-child(4) {
+	transition-delay: calc(var(--content-transition-delay) / 3 * 3);
+}
+
+.elementor-gallery-item__description {
+	color: var(--description-text-color, #fff);
+	width: 100%;
+}
+.elementor-gallery-item__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background-color: var(--icon-bg-color, rgba(247, 247, 247, 0.1));
+	backdrop-filter: blur(35px);
+	font-size: 25px;
+	line-height: 1;
+	color: var(--icon-text-color, #fff);
+}
+.elementor-gallery-item__icon i,
+.elementor-gallery-item__icon svg {
+	display: inline-flex;
+	line-height: 1;
+}
+.elementor-gallery-item__icon svg {
+	max-width: 25px;
+	height: auto;
+}
+
+.elementor-gallery-item__title {
+	color: var(--title-text-color, #fff);
+	font-weight: 700;
+	width: 100%;
+}
+
+.elementor-gallery__titles-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: var(--titles-container-justify-content, center);
+	margin-bottom: 20px;
+}
+
+.elementor-gallery__titles-container:not(.e--pointer-framed) .elementor-item:after,
+.elementor-gallery__titles-container:not(.e--pointer-framed) .elementor-item:before {
+	background-color: var(--galleries-pointer-bg-color-hover);
+}
+
+.elementor-gallery__titles-container:not(.e--pointer-framed) .elementor-item.elementor-item-active:after,
+.elementor-gallery__titles-container:not(.e--pointer-framed) .elementor-item.elementor-item-active:before {
+	background-color: var(--galleries-pointer-bg-color-active);
+}
+
+.elementor-gallery__titles-container.e--pointer-framed .elementor-item:before {
+	border-color: var(--galleries-pointer-bg-color-hover);
+	border-width: var(--galleries-pointer-border-width);
+}
+
+.elementor-gallery__titles-container.e--pointer-framed .elementor-item:after {
+	border-color: var(--galleries-pointer-bg-color-hover);
+}
+
+.elementor-gallery__titles-container.e--pointer-framed .elementor-item.elementor-item-active:after,
+.elementor-gallery__titles-container.e--pointer-framed .elementor-item.elementor-item-active:before {
+	border-color: var(--galleries-pointer-bg-color-active);
+}
+
+.elementor-gallery__titles-container.e--pointer-framed.e--animation-draw .elementor-item:before {
+	border-width: 0 0 var(--galleries-pointer-border-width) var(--galleries-pointer-border-width);
+}
+
+.elementor-gallery__titles-container.e--pointer-framed.e--animation-draw .elementor-item:after {
+	border-width: var(--galleries-pointer-border-width) var(--galleries-pointer-border-width) 0 0;
+}
+
+.elementor-gallery__titles-container.e--pointer-framed.e--animation-corners .elementor-item:before {
+	border-width: var(--galleries-pointer-border-width) 0 0 var(--galleries-pointer-border-width);
+}
+
+.elementor-gallery__titles-container.e--pointer-framed.e--animation-corners .elementor-item:after {
+	border-width: 0 var(--galleries-pointer-border-width) var(--galleries-pointer-border-width) 0;
+}
+
+.elementor-gallery__titles-container .e--pointer-double-line .elementor-item:after,
+.elementor-gallery__titles-container .e--pointer-double-line .elementor-item:before,
+.elementor-gallery__titles-container .e--pointer-overline .elementor-item:before,
+.elementor-gallery__titles-container .e--pointer-underline .elementor-item:after {
+	height: var(--galleries-pointer-border-width);
+}
+
+.elementor-gallery-title {
+	--space-between: 10px;
+	color: #6d7882;
+	cursor: pointer;
+	font-weight: 500;
+	padding: 7px 14px;
+	position: relative;
+	transition: all 0.3s;
+}
+
+.elementor-gallery-title--active {
+	color: #495157;
+}
+
+.elementor-gallery-title:not(:last-child) {
+	margin-inline-end: var(--space-between);
+}
+.elementor-gallery-item__icon + .elementor-gallery-item__title {
+	margin-top: var(--title-margin-top);
+}
+.elementor-gallery-item__title + .elementor-gallery-item__description {
+	margin-top: var(--description-margin-top);
+}
+
+.e-gallery-item.elementor-gallery-item {
+	transition-property: all;
+}
+
+.e-gallery-item.elementor-animated-content .elementor-animated-item--enter-from-bottom,
+.e-gallery-item.elementor-animated-content .elementor-animated-item--enter-from-left,
+.e-gallery-item.elementor-animated-content .elementor-animated-item--enter-from-right,
+.e-gallery-item.elementor-animated-content .elementor-animated-item--enter-from-top,
+.e-gallery-item:focus .elementor-gallery__item-overlay-bg,
+.e-gallery-item:focus .elementor-gallery__item-overlay-content,
+.e-gallery-item:focus .elementor-gallery__item-overlay-content__description,
+.e-gallery-item:focus .elementor-gallery__item-overlay-content__title,
+.e-gallery-item:hover .elementor-gallery__item-overlay-bg,
+.e-gallery-item:hover .elementor-gallery__item-overlay-content,
+.e-gallery-item:hover .elementor-gallery__item-overlay-content__description,
+.e-gallery-item:hover .elementor-gallery__item-overlay-content__title {
+	opacity: 1;
+}
+
+a.elementor-item.elementor-gallery-title {
+	color: var(--galleries-title-color-normal);
+}
+
+a.elementor-item.elementor-gallery-title.elementor-item-active,
+a.elementor-item.elementor-gallery-title.highlighted,
+a.elementor-item.elementor-gallery-title:focus,
+a.elementor-item.elementor-gallery-title:hover {
+	color: var(--galleries-title-color-hover);
+}
+
+a.elementor-item.elementor-gallery-title.elementor-item-active {
+	color: var(--gallery-title-color-active);
+}
+
+.e-con-inner > .elementor-widget-tj-gallery,
+.e-con > .elementor-widget-tj-gallery {
+	width: var(--container-widget-width);
+	--flex-grow: var(--container-widget-flex-grow);
+}
+
+.elementor-animated-content {
+	--translate: 0, 0;
+}
+.elementor-animated-content:focus .elementor-animated-item--grow,
+.elementor-animated-content:hover .elementor-animated-item--grow {
+	transform: scale(1.1);
+}
+.elementor-animated-content:focus .elementor-animated-item--shrink,
+.elementor-animated-content:hover .elementor-animated-item--shrink {
+	transform: scale(0.85);
+}
+.elementor-animated-content:focus .elementor-animated-item--shrink-contained,
+.elementor-animated-content:hover .elementor-animated-item--shrink-contained {
+	transform: scale(1);
+}
+.elementor-animated-content:focus .elementor-animated-item--enter-zoom-in,
+.elementor-animated-content:focus .elementor-animated-item--enter-zoom-out,
+.elementor-animated-content:focus .elementor-animated-item--fade-in,
+.elementor-animated-content:hover .elementor-animated-item--enter-zoom-in,
+.elementor-animated-content:hover .elementor-animated-item--enter-zoom-out,
+.elementor-animated-content:hover .elementor-animated-item--fade-in {
+	opacity: 1;
+	transform: scale(1);
+}
+.elementor-animated-content:focus .elementor-animated-item--exit-zoom-in,
+.elementor-animated-content:focus .elementor-animated-item--exit-zoom-out,
+.elementor-animated-content:focus .elementor-animated-item--fade-out,
+.elementor-animated-content:hover .elementor-animated-item--exit-zoom-in,
+.elementor-animated-content:hover .elementor-animated-item--exit-zoom-out,
+.elementor-animated-content:hover .elementor-animated-item--fade-out {
+	opacity: 0;
+}
+.elementor-animated-content:focus .elementor-animated-item--exit-zoom-out,
+.elementor-animated-content:hover .elementor-animated-item--exit-zoom-out {
+	transform: scale(0.2);
+}
+.elementor-animated-content:focus .elementor-animated-item--exit-zoom-in,
+.elementor-animated-content:hover .elementor-animated-item--exit-zoom-in {
+	transform: scale(2);
+}
+.elementor-animated-content:focus .elementor-animated-item--enter-from-bottom,
+.elementor-animated-content:focus .elementor-animated-item--enter-from-left,
+.elementor-animated-content:focus .elementor-animated-item--enter-from-right,
+.elementor-animated-content:focus .elementor-animated-item--enter-from-top,
+.elementor-animated-content:hover .elementor-animated-item--enter-from-bottom,
+.elementor-animated-content:hover .elementor-animated-item--enter-from-left,
+.elementor-animated-content:hover .elementor-animated-item--enter-from-right,
+.elementor-animated-content:hover .elementor-animated-item--enter-from-top {
+	opacity: 1;
+	transform: translateY(0) translateX(0);
+}
+.elementor-animated-content:focus .elementor-animated-item--exit-to-right,
+.elementor-animated-content:hover .elementor-animated-item--exit-to-right {
+	transform: translateX(1000px);
+}
+.elementor-animated-content:focus .elementor-animated-item--exit-to-left,
+.elementor-animated-content:hover .elementor-animated-item--exit-to-left {
+	transform: translateX(-1000px);
+}
+.elementor-animated-content:focus .elementor-animated-item--exit-to-top,
+.elementor-animated-content:hover .elementor-animated-item--exit-to-top {
+	transform: translateY(-600px);
+}
+.elementor-animated-content:focus .elementor-animated-item--exit-to-bottom,
+.elementor-animated-content:hover .elementor-animated-item--exit-to-bottom {
+	transform: translateY(600px);
+}
+.elementor-animated-content:focus .elementor-animated-item--exit-to-bottom,
+.elementor-animated-content:focus .elementor-animated-item--exit-to-left,
+.elementor-animated-content:focus .elementor-animated-item--exit-to-right,
+.elementor-animated-content:focus .elementor-animated-item--exit-to-top,
+.elementor-animated-content:hover .elementor-animated-item--exit-to-bottom,
+.elementor-animated-content:hover .elementor-animated-item--exit-to-left,
+.elementor-animated-content:hover .elementor-animated-item--exit-to-right,
+.elementor-animated-content:hover .elementor-animated-item--exit-to-top {
+	opacity: 0;
+}
+.elementor-animated-content:focus .elementor-animated-item--move-right,
+.elementor-animated-content:hover .elementor-animated-item--move-right {
+	transform: translateX(30px);
+}
+.elementor-animated-content:focus .elementor-animated-item--move-left,
+.elementor-animated-content:hover .elementor-animated-item--move-left {
+	transform: translateX(-30px);
+}
+.elementor-animated-content:focus .elementor-animated-item--move-up,
+.elementor-animated-content:hover .elementor-animated-item--move-up {
+	transform: translateY(-30px);
+}
+.elementor-animated-content:focus .elementor-animated-item--move-down,
+.elementor-animated-content:hover .elementor-animated-item--move-down {
+	transform: translateY(30px);
+}
+.elementor-animated-content:focus .elementor-animated-item--move-contained-right,
+.elementor-animated-content:hover .elementor-animated-item--move-contained-right {
+	--translate: 8%, 0;
+}
+.elementor-animated-content:focus .elementor-animated-item--move-contained-left,
+.elementor-animated-content:hover .elementor-animated-item--move-contained-left {
+	--translate: -8%, 0;
+}
+.elementor-animated-content:focus .elementor-animated-item--move-contained-top,
+.elementor-animated-content:hover .elementor-animated-item--move-contained-top {
+	--translate: 0, -8%;
+}
+.elementor-animated-content:focus .elementor-animated-item--move-contained-bottom,
+.elementor-animated-content:hover .elementor-animated-item--move-contained-bottom {
+	--translate: 0, 8%;
+}
+.elementor-animated-content [class^="elementor-animated-item"] {
+	will-change: transform, opacity;
+}
+.elementor-animated-content .elementor-animated-item--shrink-contained {
+	transform: scale(1.17);
+}
+.elementor-animated-content .elementor-animated-item--enter-zoom-in {
+	transform: scale(0.2);
+}
+.elementor-animated-content .elementor-animated-item--enter-zoom-out {
+	transform: scale(2);
+}
+.elementor-animated-content .elementor-animated-item--enter-zoom-in,
+.elementor-animated-content .elementor-animated-item--enter-zoom-out,
+.elementor-animated-content .elementor-animated-item--fade-in {
+	opacity: 0;
+}
+.elementor-animated-content .elementor-animated-item--exit-zoom-in,
+.elementor-animated-content .elementor-animated-item--exit-zoom-out,
+.elementor-animated-content .elementor-animated-item--fade-out {
+	opacity: 1;
+	transform: scale(1);
+}
+.elementor-animated-content .elementor-animated-item--enter-from-right {
+	transform: translateX(1000px);
+}
+.elementor-animated-content .elementor-animated-item--enter-from-left {
+	transform: translateX(-1000px);
+}
+.elementor-animated-content .elementor-animated-item--enter-from-top {
+	transform: translateY(-600px);
+}
+.elementor-animated-content .elementor-animated-item--enter-from-bottom {
+	transform: translateY(500px);
+}
+.elementor-animated-content .elementor-animated-item--enter-from-bottom,
+.elementor-animated-content .elementor-animated-item--enter-from-left,
+.elementor-animated-content .elementor-animated-item--enter-from-right,
+.elementor-animated-content .elementor-animated-item--enter-from-top {
+	opacity: 0;
+}
+.elementor-animated-content .elementor-animated-item--exit-to-bottom,
+.elementor-animated-content .elementor-animated-item--exit-to-left,
+.elementor-animated-content .elementor-animated-item--exit-to-right,
+.elementor-animated-content .elementor-animated-item--exit-to-top {
+	opacity: 1;
+	transform: translateY(0) translateX(0);
+}
+.elementor-animated-content .elementor-animated-item--move-contained-bottom,
+.elementor-animated-content .elementor-animated-item--move-contained-left,
+.elementor-animated-content .elementor-animated-item--move-contained-right,
+.elementor-animated-content .elementor-animated-item--move-contained-top {
+	transform: scale(1.2) translate(var(--translate));
+}
