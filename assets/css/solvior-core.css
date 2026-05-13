@@ -1518,7 +1518,7 @@ img {
   display: flex;
   align-items: center;
   position: relative;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--tj-color-common-white-2);
   padding: 32px 0;
   font-weight: var(--tj-fw-bold);
@@ -1526,8 +1526,11 @@ img {
   column-gap: 5px;
 }
 .mainmenu ul > li.menu-item-has-children > a::after, .mainmenu ul > li.has-dropdown > a::after {
-  content: "\e91a";
-  font-family: "solvior-icons";
+  content: "\f107";
+  font-family: "Font Awesome 6 Pro", "Font Awesome 6 Free", FontAwesome, sans-serif;
+  font-weight: 900;
+  font-size: 12px;
+  display: inline-block;
   transition: transform 0.4s;
 }
 .mainmenu ul > li.current-menu-ancestor > a, .mainmenu ul > li.current-menu-item > a, .mainmenu ul > li:hover > a {
@@ -1599,7 +1602,10 @@ img {
   padding: 12px 28px 12px 15px;
 }
 .mainmenu ul > li > .sub-menu > li.menu-item-has-children > a::after, .mainmenu ul > li > .sub-menu > li.has-dropdown > a::after {
-  content: "\e91c";
+  content: "\f105";
+  font-family: "Font Awesome 6 Pro", "Font Awesome 6 Free", FontAwesome, sans-serif;
+  font-weight: 900;
+  font-size: 12px;
   transition: none;
 }
 .mainmenu ul > li > .sub-menu > li.current-menu-ancestor > a, .mainmenu ul > li > .sub-menu > li.current-menu-item > a, .mainmenu ul > li > .sub-menu > li:hover > a {
