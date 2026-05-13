@@ -63,20 +63,64 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </style>
 <link rel="stylesheet" id="solvior-google-fonts-css" href="assets/css/css" media="all">
 <link rel="stylesheet" id="tj-bootstrap-css" href="assets/css/bootstrap.min.css" media="all">
-<link rel="stylesheet" id="font-awesome-pro-css" href="assets/css/font-awesome-pro.min.css" media="all">
-<link rel="stylesheet" id="tj-animate-css" href="assets/css/animate.css" media="all">
+<link rel="stylesheet" id="font-awesome-pro-css" href="https://solvior.themejunction.net/wp-content/themes/solvior/assets/css/font-awesome-pro.min.css" media="all">
+<link rel="stylesheet" id="tj-animate-css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="all">
 <link rel="stylesheet" id="tj-nice-select-css" href="assets/css/nice-select.css" media="all">
 <link rel="stylesheet" id="tj-mean-menu-css" href="assets/css/mean-menu.css" media="all">
-<link rel="stylesheet" id="tj-odometer-css" href="assets/css/odometer.css" media="all">
-<link rel="stylesheet" id="tj-swiper-min-css" href="assets/css/swiper.min.css" media="all">
-<link rel="stylesheet" id="tj-venobox-min-css" href="assets/css/venobox.min.css" media="all">
-<link rel="stylesheet" id="tj-solvior-icons-css" href="assets/css/solvior-icons.css" media="all">
+<link rel="stylesheet" id="tj-odometer-css" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-default.min.css" media="all">
+<link rel="stylesheet" id="tj-swiper-min-css" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" media="all">
+<link rel="stylesheet" id="tj-venobox-min-css" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.css" media="all">
+<link rel="stylesheet" id="tj-solvior-icons-css" href="https://solvior.themejunction.net/wp-content/themes/solvior/assets/css/solvior-icons.css" media="all">
 <link rel="stylesheet" id="tj-solvior-core-css" href="assets/css/solvior-core.css" media="all">
 <link rel="stylesheet" id="tj-solvior-unit-css" href="assets/css/solvior-unit.css" media="all">
 <link rel="stylesheet" id="tj-solvior-shop-css" href="assets/css/solvior-shop.css" media="all">
 <link rel="stylesheet" id="solvior-style-css" href="assets/css/style.css" media="all">
 <link rel="stylesheet" id="tjcore-style-css" href="assets/css/tjcore.css" media="all">
-<link rel="stylesheet" id="elementor-icons-css" href="assets/css/elementor-icons.min.css" media="all">
+<!-- Added: Bootstrap Icons and Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  /* nav caret styles */
+  .nav-links .nav-caret{ margin-left:8px; font-size:0.9em; vertical-align:middle; color:inherit }
+  @media(max-width:991px){ .nav-links .nav-caret{ display:inline-block } }
+</style>
+
+<style>
+  /* Hide theme-inserted caret/pseudo for nav links to avoid double icons */
+  .mainmenu .menu-item-has-children > .nav-links::after { content: none !important; }
+</style>
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    try{
+      document.querySelectorAll('.nav-links').forEach(function(a){
+        // if we've already added our caret, skip
+        if(a.querySelector('.nav-caret')) return;
+
+        // remove theme-specific inline icons (classes starting with tji- or tj-)
+        Array.from(a.querySelectorAll('i')).forEach(function(el){
+          var cls = el.className || '';
+          if(/\btji-|\btj-|\btj\w*/.test(cls)) el.remove();
+        });
+
+        // append new caret (FontAwesome fallback to Bootstrap icon) only if missing
+        if(!a.querySelector('.nav-caret')){
+          var icon = document.createElement('i');
+          if(document.querySelector('link[href*="bootstrap-icons"]')){
+            icon.className = 'bi bi-chevron-down nav-caret';
+          } else {
+            icon.className = 'fa-solid fa-chevron-down nav-caret';
+          }
+          a.appendChild(icon);
+        }
+      });
+      console.log('Nav carets updated');
+    }catch(e){ console.warn('Failed to update nav carets', e); }
+  });
+</script>
+<link rel="stylesheet" id="elementor-icons-css" href="https://solvior.themejunction.net/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css" media="all">
 <link rel="stylesheet" id="elementor-frontend-css" href="assets/css/custom-frontend.min.css" media="all">
 <link rel="stylesheet" id="elementor-post-9-css" href="assets/css/post-9.css" media="all">
 <link rel="stylesheet" id="tj-gallery-css" href="assets/css/tj-gallery.css" media="all">
@@ -84,7 +128,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <link rel="stylesheet" id="elementor-post-2319-css" href="assets/css/post-2319.css" media="all">
 <link rel="stylesheet" id="elementor-gf-local-roboto-css" href="assets/css/roboto.css" media="all">
 <link rel="stylesheet" id="elementor-gf-local-robotoslab-css" href="assets/css/robotoslab.css" media="all">
-<link rel="stylesheet" id="elementor-icons-theme-junction-icons-css" href="assets/css/tj-icons.css" media="all">
+<link rel="stylesheet" id="elementor-icons-theme-junction-icons-css" href="https://solvior.themejunction.net/wp-content/plugins/tj-solvior-core/inc/icons/tj-icons/css/tj-icons.css" media="all">
 <script type="text/template" id="tmpl-variation-template">
 	<div class="woocommerce-variation-description">{{{ data.variation.variation_description }}}</div>
 	<div class="woocommerce-variation-price">{{{ data.variation.price_html }}}</div>
@@ -268,7 +312,80 @@ var _wpUtilSettings = {"ajax":{"url":"/wp-admin/admin-ajax.php"}};
   font-display: swap;
   src: url(https://solvior.themejunction.net/wp-content/fonts/libre-franklin/jizOREVItHgc8qDIbSTKq4XkRg8T88bjFuXOnduh8MKkANDJ.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}</style><script src="assets/js/wp-emoji-release.min.js.download" defer=""></script></head>
+}</style>
+<style id="lexwell-custom-theme">
+  :root {
+    --lexwell-yellow: #F5A623; /* Lexwell Logo Yellow */
+  }
+  
+  /* Topbar Yellow accents */
+  .header-topbar_wrap i,
+  .topbar_note a span {
+    color: var(--lexwell-yellow) !important;
+  }
+  
+  /* Primary Button Accents */
+  .tj-primary-btn:hover {
+    background-color: var(--lexwell-yellow) !important;
+    border-color: var(--lexwell-yellow) !important;
+    color: #051229 !important;
+  }
+  .tj-primary-btn:hover .btn_icon span {
+    background-color: #051229 !important;
+    color: var(--lexwell-yellow) !important;
+  }
+  
+  /* Menu and Nav Caret */
+  .mainmenu .menu > li > a:hover,
+  .mainmenu .menu > li > a:hover .nav-caret,
+  .mainmenu .sub-menu li a:hover {
+    color: var(--lexwell-yellow) !important;
+  }
+  
+  /* Badges */
+  .mega-menu-badge {
+    background-color: var(--lexwell-yellow) !important;
+    color: #051229 !important;
+  }
+  
+  /* Back to Top */
+  .back-to-top-btn:hover {
+    background-color: var(--lexwell-yellow) !important;
+    color: #051229 !important;
+  }
+  
+  /* Specific Button icons inside CTA */
+  .h5-cta-contact .btn_icon span {
+    background-color: var(--lexwell-yellow) !important;
+    color: #051229 !important;
+  }
+  
+  /* Footer Hover */
+  .footer-widget .widget-menu ul li a:hover,
+  .footer-social ul li a:hover {
+    color: var(--lexwell-yellow) !important;
+  }
+  
+  /* Blog Button */
+  .blog-btn-2:hover {
+    color: var(--lexwell-yellow) !important;
+  }
+  .blog-btn-2:hover .btn-icon {
+    background-color: var(--lexwell-yellow) !important;
+    color: #051229 !important;
+  }
+  
+  /* Custom blue-yellow circle accents */
+  .tj-demo-badge {
+    background-color: var(--lexwell-yellow) !important;
+  }
+  
+  /* Text Underlines / Accents */
+  .under-line a:hover {
+    color: var(--lexwell-yellow) !important;
+  }
+</style>
+<script src="assets/js/wp-emoji-release.min.js.download" defer=""></script></head>
 
 
 
@@ -322,8 +439,8 @@ var _wpUtilSettings = {"ajax":{"url":"/wp-admin/admin-ajax.php"}};
         <div class="col-12">
           <div class="header-wrapper">
                           <div class="site-logo ">
-                                  <a class="primary_logo logo" href="https://solvior.themejunction.net/">
-                    <img src="assets/images/secondary-logo.png" alt="">
+                                  <a class="primary_logo logo" href="https://lexwell.co.in/">
+                    <img src="https://lexwell.co.in/wp-content/uploads/2023/09/logo-main-blue.svg" alt="Lexwell Logo" style="height: 45px; width: 160px; object-fit: contain; display: block;">
                   </a>
                                               </div>
                         <!-- main navigation -->
@@ -947,8 +1064,8 @@ var _wpUtilSettings = {"ajax":{"url":"/wp-admin/admin-ajax.php"}};
           <div class="header-wrapper">
 
                           <div class="site-logo ">
-                                  <a class="primary_logo logo" href="https://solvior.themejunction.net/">
-                    <img src="assets/images/primary-logo.png" alt="">
+                                  <a class="primary_logo logo" href="https://lexwell.co.in/">
+                    <img src="https://lexwell.co.in/wp-content/uploads/2023/09/logo-main-blue.svg" alt="Lexwell Logo" style="height: 45px; width: 160px; object-fit: contain; display: block;">
                   </a>
                                               </div>
             
@@ -3914,8 +4031,8 @@ our success</p>
 <div class="footer-widget mb-0">
       <!-- footer logo -->
     <div class="footer-logo">
-      <a href="https://solvior.themejunction.net/" class="logo">
-        <img src="assets/images/secondary-logo.png" alt="">
+      <a href="https://lexwell.co.in/" class="logo">
+        <img src="https://lexwell.co.in/wp-content/uploads/2023/09/logo-main-blue.svg" alt="Lexwell Logo" style="max-height: 45px; width: auto;">
       </a>
     </div>
   
@@ -4075,6 +4192,19 @@ our success</p>
 		<script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/solvior/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
+<style>
+  /* Tighten header: align logo left, nav right, reduce gaps */
+  .header-wrapper{ display:flex; align-items:center; justify-content:space-between; gap:8px; padding-left:6px; padding-right:6px }
+  .site-logo{ flex: 0 0 auto; margin-right:6px }
+  .mainmenu{ flex: 1 1 auto; display:flex; justify-content:flex-end; }
+  .mainmenu .menu{ display:flex; gap:8px; align-items:center; margin:0; padding:0; list-style:none; }
+  .mainmenu .menu > li{ margin:0 }
+  .mainmenu .menu > li > a{ padding:6px 4px; display:inline-block }
+  @media(max-width:991px){
+    .header-wrapper{ padding-left:8px; padding-right:8px; }
+    .mainmenu .menu{ gap:6px; }
+  }
+</style>
 <div id="woosw_wishlist" class="woosw-popup woosw-popup-center"></div>    <script type="text/javascript">
         jQuery(function($) {
             if (!String.prototype.getDecimals) {
@@ -4199,25 +4329,25 @@ var woosw_vars = {"wc_ajax_url":"/?wc-ajax=%%endpoint%%","nonce":"e50fc914d3","a
 </script>
 <script src="assets/js/frontend(1).js.download" id="woosw-frontend-js"></script>
 <script src="assets/js/bootstrap.bundle.min.js.download" id="tj-bootstrap-js"></script>
-<script src="assets/js/gsap.min.js.download" id="tj-gsap-min-js"></script>
-<script src="assets/js/scroll-to-plugin.min.js.download" id="tj-scroll-to-plugin-js"></script>
-<script src="assets/js/gsap-scroll-trigger.min.js.download" id="tj-gsap-scroll-trigger-js"></script>
-<script src="assets/js/gsap-split-text.min.js.download" id="tj-gsap-split-text-js"></script>
-<script src="assets/js/smooth-scroll.min.js.download" id="tj-smooth-scroll-js"></script>
-<script src="assets/js/appear.min.js.download" id="tj-appear-min-js"></script>
-<script src="assets/js/wow.min.js.download" id="tj-wow-min-js"></script>
-<script src="assets/js/nice-select.js.download" id="tj-nice-select-js"></script>
-<script src="assets/js/meanmenu.js.download" id="tj-meanmenu-js"></script>
-<script src="assets/js/odometer.min.js.download" id="tj-odometer-js"></script>
-<script src="assets/js/solvior-knob.js.download" id="tj-solvior-knob-js"></script>
-<script src="assets/js/swiper.min.js.download" id="tj-swiper-min-js"></script>
-<script src="assets/js/venobox.min.js.download" id="tj-venobox-min-js"></script>
-<script src="assets/js/chart.min.js.download" id="tj-chart-min-js"></script>
-<script src="assets/js/purecounter.js.download" id="tj-purecounter-js"></script>
-<script src="assets/js/magiccursor.js.download" id="tj-magiccursor-js"></script>
-<script src="assets/js/imagesloaded.min.js.download" id="imagesloaded-js"></script>
-<script src="assets/js/isotope.pkgd.min.js.download" id="tj-isotope-js"></script>
-<script src="assets/js/solvior-core.js.download" id="tj-solvior-core-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" id="tj-gsap-min-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" id="tj-scroll-to-plugin-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" id="tj-gsap-scroll-trigger-js"></script>
+<script src="https://solvior.themejunction.net/wp-content/themes/solvior/assets/js/gsap-split-text.min.js" id="tj-gsap-split-text-js"></script>
+<script src="https://solvior.themejunction.net/wp-content/themes/solvior/assets/js/smooth-scroll.min.js" id="tj-smooth-scroll-js"></script>
+<script src="https://solvior.themejunction.net/wp-content/themes/solvior/assets/js/appear.min.js" id="tj-appear-min-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" id="tj-wow-min-js"></script>
+<script src="https://solvior.themejunction.net/wp-content/themes/solvior/assets/js/nice-select.js" id="tj-nice-select-js"></script>
+<script src="https://solvior.themejunction.net/wp-content/themes/solvior/assets/js/meanmenu.js" id="tj-meanmenu-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js" id="tj-odometer-js"></script>
+<script src="https://solvior.themejunction.net/wp-content/themes/solvior/assets/js/solvior-knob.js" id="tj-solvior-knob-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" id="tj-swiper-min-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.js" id="tj-venobox-min-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" id="tj-chart-min-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js" id="tj-purecounter-js"></script>
+<script src="https://solvior.themejunction.net/wp-content/themes/solvior/assets/js/magiccursor.js" id="tj-magiccursor-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js" id="imagesloaded-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" id="tj-isotope-js"></script>
+<script src="https://solvior.themejunction.net/wp-content/themes/solvior/assets/js/solvior-core.js" id="tj-solvior-core-js"></script>
 <script src="assets/js/sourcebuster.min.js.download" id="sourcebuster-js-js"></script>
 <script id="wc-order-attribution-js-extra">
 var wc_order_attribution = {"params":{"lifetime":1.0e-5,"session":30,"base64":false,"ajaxurl":"https://solvior.themejunction.net/wp-admin/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
@@ -4246,4 +4376,42 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 </script>
 
 
-<div class="cb-cursor" style="translate: none; rotate: none; scale: none; transform: translate3d(701px, 617px, 0px);"><div class="cb-cursor-text"></div></div><div class="widget_shopping_cart_live_region screen-reader-text" role="status"></div></body></html>
+<div class="cb-cursor" style="translate: none; rotate: none; scale: none; transform: translate3d(701px, 617px, 0px);"><div class="cb-cursor-text"></div></div><div class="widget_shopping_cart_live_region screen-reader-text" role="status"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    try{
+      const iconMap = {
+        'tji-check': 'fa-solid fa-check',
+        'tji-angle-right': 'fa-solid fa-angle-right',
+        'tji-arrow-right': 'fa-solid fa-arrow-right',
+        'tji-arrow-left': 'fa-solid fa-arrow-left',
+        'tji-arrow-up': 'fa-solid fa-arrow-up',
+        'tji-clock': 'fa-regular fa-clock',
+        'tji-email': 'fa-regular fa-envelope',
+        'tji-phone': 'fa-solid fa-phone',
+        'tji-play': 'fa-solid fa-play'
+      };
+      
+      document.querySelectorAll('i').forEach(function(el){
+        let changed = false;
+        let newClasses = [];
+        el.classList.forEach(cls => {
+          if (iconMap[cls]) {
+             newClasses.push(...iconMap[cls].split(' '));
+             changed = true;
+          } else if (!cls.startsWith('tji-')) {
+             newClasses.push(cls);
+          } else {
+             changed = true; // remove unknown tji-
+          }
+        });
+        
+        if (changed) {
+           el.className = newClasses.join(' ');
+        }
+      });
+      console.log('Custom icons replaced with FontAwesome!');
+    }catch(e){ console.warn('Failed to replace custom icons', e); }
+  });
+</script>
+</body></html>
