@@ -1,0 +1,127 @@
+/* theme-custom.css - Centralized Theme Styles & Variables */
+
+/*
+ * Disable CSS smooth scrolling: it was on <html> and in Bootstrap (:root); on a
+ * very long page it feels sluggish and can fight theme scroll scripts.
+ * Anchor smooth scroll may still come from smooth-scroll.min.js if that loads.
+ */
+html {
+  scroll-behavior: auto !important;
+}
+
+:root {
+  scroll-behavior: auto !important;
+  --lexwell-yellow: #F5A623;       /* Lexwell Logo Yellow */
+  --lexwell-dark-blue: #0D2B6E;    /* Lexwell Logo Dark Navy Blue */
+  --lexwell-blue: #0075ff;         /* Theme Primary Blue */
+  --tj-ff-body: 'Lato', sans-serif;
+  --tj-ff-heading: sans-serif;
+}
+
+/* Hero Heading – dark navy same as Lexwell logo */
+.hero-title,
+.hero-title .heading-text {
+  color: var(--lexwell-dark-blue) !important;
+}
+
+/* Blue accent spans inside headings (Business Compliance, Companies, etc.) */
+.hero-title .accent-blue,
+.heading-text .accent-blue {
+  color: var(--lexwell-blue) !important;
+}
+
+/* Apply Solvior Typography */
+body {
+  font-family: var(--tj-ff-body) !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--tj-ff-heading) !important;
+}
+
+/* nav caret styles */
+.nav-links .nav-caret { margin-left: 8px; font-size: 0.9em; vertical-align: middle; color: inherit; }
+@media(max-width:991px) { .nav-links .nav-caret { display: inline-block; } }
+
+/* Hide theme-inserted caret/pseudo for nav links to avoid double icons */
+.mainmenu .menu-item-has-children > .nav-links::after { content: none !important; }
+
+/* Topbar Yellow accents */
+.header-topbar_wrap i,
+.topbar_note a span {
+  color: var(--lexwell-yellow) !important;
+}
+
+/* Primary Button Accents */
+.tj-primary-btn:hover {
+  background-color: var(--lexwell-yellow) !important;
+  border-color: var(--lexwell-yellow) !important;
+  color: #051229 !important;
+}
+.tj-primary-btn:hover .btn_icon span {
+  background-color: #051229 !important;
+  color: var(--lexwell-yellow) !important;
+}
+
+/* Menu and Nav Caret */
+.mainmenu .menu > li > a:hover,
+.mainmenu .menu > li > a:hover .nav-caret,
+.mainmenu .sub-menu li a:hover {
+  color: var(--lexwell-yellow) !important;
+}
+
+/* Badges */
+.mega-menu-badge {
+  background-color: var(--lexwell-yellow) !important;
+  color: #051229 !important;
+}
+
+/* Back to Top */
+.back-to-top-btn:hover {
+  background-color: var(--lexwell-yellow) !important;
+  color: #051229 !important;
+}
+
+/* Specific Button icons inside CTA */
+.h5-cta-contact .btn_icon span {
+  background-color: var(--lexwell-yellow) !important;
+  color: #051229 !important;
+}
+
+/* Footer Hover */
+.footer-widget .widget-menu ul li a:hover,
+.footer-social ul li a:hover {
+  color: var(--lexwell-yellow) !important;
+}
+
+/* Blog Button */
+.blog-btn-2:hover {
+  color: var(--lexwell-yellow) !important;
+}
+.blog-btn-2:hover .btn-icon {
+  background-color: var(--lexwell-yellow) !important;
+  color: #051229 !important;
+}
+
+/* Custom blue-yellow circle accents */
+.tj-demo-badge {
+  background-color: var(--lexwell-yellow) !important;
+}
+
+/* Text Underlines / Accents */
+.under-line a:hover {
+  color: var(--lexwell-yellow) !important;
+}
+
+/* Tighten header: align logo left, nav right, reduce gaps */
+.header-wrapper { display: flex; align-items: center; justify-content: flex-start; gap: 20px; padding-left: 15px; padding-right: 15px; }
+.site-logo { flex: 0 0 auto; }
+.mainmenu { flex: 1 1 auto; display: flex; justify-content: flex-start; }
+.mainmenu .menu { display: flex; gap: 10px; align-items: center; margin: 0; padding: 0; list-style: none; }
+.mainmenu .menu > li { margin: 0; }
+.mainmenu .menu > li > a { padding: 6px 10px; display: inline-block; font-weight: 500; }
+@media(max-width:991px) {
+  .header-wrapper { justify-content: space-between; padding-left: 10px; padding-right: 10px; gap: 10px; }
+  .mainmenu .menu { gap: 6px; }
+}
